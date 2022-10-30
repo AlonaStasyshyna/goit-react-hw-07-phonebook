@@ -60,7 +60,7 @@ export const App = () => {
       <h2>Contacts</h2>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {contacts.length > 0 && (
+      {contacts && (
         <>
           <Filter startFilter={filter} handleFilter={handleFilter} />
           <ContactList contacts={contacts} handleDelete={handleDelete} />

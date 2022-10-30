@@ -4,15 +4,15 @@ import { Form, Label, Input, Button } from './ContactForm.styled';
 
 export const ContactForm = ({ handleChange }) => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleInput = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
         setName(value);
         break;
-      case 'number':
-        setNumber(value);
+      case 'phone':
+        setPhone(value);
         break;
       default:
         return;
@@ -22,13 +22,13 @@ export const ContactForm = ({ handleChange }) => {
   const onSubmit = e => {
     e.preventDefault();
 
-    handleChange({ name, number });
+    handleChange({ name, phone });
     formReset();
   };
 
   const formReset = () => {
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -50,11 +50,11 @@ export const ContactForm = ({ handleChange }) => {
         Number
         <Input
           type="tel"
-          name="number"
+          name="phone"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          value={number}
+          value={phone}
           onChange={handleInput}
         />
       </Label>
